@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{template "welcome.fullname" . }}
+  namespace: {{ template "welcome.namespace" . }}
+  labels:
+    "app.kubernetes.io/name": '{{ template "welcome.name" .}}'
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+    "app.kubernetes.io/component": "{{ .Values.server.componentName }}"
+  {{- if (and (eq .Values.server.serviceType "ClusterIP") (not (empty .Values.server.clusterIP))) }}
+  clusterIP: {{.Values.server.clusterIP}}
+  {{- end }}
+  ports:
+    - port: {{.Values.server.servicePort}}
+      name: http
+      targetPort: {{ .Values.server.targetPort }}
+      {{- if (and (eq .Values.server.serviceType "NodePort") (not (empty .Values.server.nodePort))) }}
+      nodePort: {{.Values.server.nodePort}}
+      {{- end }}
+{{- range $index, $port := .Values.server.extraPorts }}
+    - port: {{ $port.port }}
+      name: {{ $port.name }}
+      targetPort: {{ $port.port }}
+{{- end }}
+  selector:
+    "app.kubernetes.io/component": "{{ .Values.server.componentName }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+  type: {{.Values.server.serviceType}}
+  {{if eq .Values.server.serviceType "LoadBalancer"}}
+{{- if .Values.server.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+{{ toYaml .Values.server.loadBalancerSourceRanges | indent 4 }}
+{{- end }}
+  {{if .Values.server.loadBalancerIP}}
+  loadBalancerIP: {{.Values.server.loadBalancerIP}}
+  {{end}}
+  {{end}}

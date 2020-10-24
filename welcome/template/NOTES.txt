@@ -1,0 +1,16 @@
+Thanks you for installing {{ .Chart.Name }}.
+
+This nginx is serving your information
+when your install this chart given variable!
+
+To disclaimer:
+This chart is made for educational propose.
+
+DO NOT TRY at Production environment.
+
+Your release is named {{ .Release.Name}}.
+
+To learn more about this release, try
+
+$ helm status {{ .Release.Name }}
+$ helm get all {{ .Release.Name }}

@@ -1,0 +1,27 @@
+{{ }}
+apiVerison: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "welcome.fullname" . }}
+  namespace: {{ template "welcome.namespace" . }}
+  labels:
+    "app.kubernetes.io/name": '{{ template "welcome.name" .}}'
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+    "app.kubernetes.io/component": "{{ .Values.master.componentName }}"
+data:
+   nginx.conf: |-
+   server {
+    listen 80;
+    location / {
+        root /public;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api {
+        default_type application/json;
+        return 200 '{"name": "%name%" }';
+    }
+}

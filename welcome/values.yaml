@@ -1,0 +1,10 @@
+# applcation base
+welcome:
+  useConfigMap: true
+  printName: "world"
+  initContainer:
+    args: "sed -i"
+
+# pvc settings
+persistence:
+  size: 10Gi
