@@ -2,8 +2,7 @@
 apiVerison: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "welcome.fullname" . }}
-  namespace: {{ template "welcome.namespace" . }}
+  name: welcome-configmapp
   labels:
     "app.kubernetes.io/name": '{{ template "welcome.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -22,6 +21,6 @@ data:
 
     location /api {
         default_type application/json;
-        return 200 '{"name": "%name%" }';
+        return 200 '{"name": {{ .Values.welcome.printName | quote }} }';
     }
 }
