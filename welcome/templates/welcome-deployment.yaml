@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: welcome-deployment
+  name: {{template "welcome.fullname" . }}-deployment
 {{- if .Values.welcome.deploymentAnnotations }}
   annotations:
 {{ toYaml .Values.welcome.deploymentAnnotations | indent 4 }}
 {{- end }}
   labels:
-    app: nginx
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
   replicas: 1
   template:
     metadata:
