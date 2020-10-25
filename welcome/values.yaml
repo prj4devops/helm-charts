@@ -1,9 +1,11 @@
 # applcation base
 welcome:
-  useConfigMap: true
   printName: "world"
-  initContainer:
-    args: "sed -i"
+
+service:
+  port: 80
+  serviceAccount:
+    create: false
 
 # pvc settings
 persistence:
