@@ -18,13 +18,13 @@ spec:
       labels:
         app: nginx
     spec:
-      # initContainers:
-      #   - name: html-install
-      #     image: busybox
-      #     command: ["/bin/sh", "-c", "wget -qO- {{ .Values.welcome.assetDownloadURL }} | unzip public.zip -d /public"]
-      #     volumeMounts:
-      #     - name: storage-volume
-      #       mountPath: /public
+      initContainers:
+        - name: html-install
+          image: cropio/busybox-wget-https
+          command: ["/bin/sh", "-c", "wget -qO public.zip {{ .Values.welcome.assetDownloadURL }} && unzip public.zip -d /public"]
+          volumeMounts:
+          - name: storage-volume
+            mountPath: /public
       containers:
       - name: welcome
         image: nginx:latest
