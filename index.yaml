@@ -3,7 +3,7 @@ entries:
   grafana:
   - apiVersion: v1
     appVersion: 7.0.3
-    created: "2020-10-26T02:12:08.8039743+09:00"
+    created: "2020-10-26T02:57:40.8389033+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 79d408a92f8f1b78877dba988c5c0e624e284d94adb8770674128ce1942b389f
     home: https://grafana.net
@@ -25,7 +25,7 @@ entries:
   jenkins:
   - apiVersion: v1
     appVersion: lts
-    created: "2020-10-26T02:12:08.8084257+09:00"
+    created: "2020-10-26T02:57:40.8421092+09:00"
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -59,7 +59,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.19.0
-    created: "2020-10-26T02:12:08.8125611+09:00"
+    created: "2020-10-26T02:57:40.8478682+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -86,10 +86,10 @@ entries:
     version: 11.6.0
   welcome:
   - apiVersion: v1
-    appVersion: 1.0.1
-    created: "2020-10-26T02:12:08.8133528+09:00"
+    appVersion: 1.0.2
+    created: "2020-10-26T02:57:40.8483772+09:00"
     description: For Educational Propose Customize Nginx
-    digest: 95d578bbd4e16f72fb788619c633d5f0da2b7813e91f1dd1c874eb35276fa7f9
+    digest: 9a081a0de36c13570d10e8b4d7bd702c69d575e66d7a402d54e5df9be7dab861
     home: https://github.com/seongjumoon/template-base
     maintainers:
     - email: seongju.moon@linux.com
@@ -98,6 +98,6 @@ entries:
     sources:
     - https://github.com/seongjumoon/template-base
     urls:
-    - welcome-1.0.1.tgz
-    version: 1.0.1
-generated: "2020-10-26T02:12:08.8020988+09:00"
+    - welcome-1.0.2.tgz
+    version: 1.0.2
+generated: "2020-10-26T02:57:40.8370112+09:00"
