@@ -3,7 +3,7 @@ entries:
   grafana:
   - apiVersion: v1
     appVersion: 7.0.3
-    created: "2020-10-24T16:10:31.7713219+09:00"
+    created: "2020-10-26T00:41:52.928341+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 79d408a92f8f1b78877dba988c5c0e624e284d94adb8770674128ce1942b389f
     home: https://grafana.net
@@ -25,7 +25,7 @@ entries:
   jenkins:
   - apiVersion: v1
     appVersion: lts
-    created: "2020-10-24T16:10:31.7747946+09:00"
+    created: "2020-10-26T00:41:52.9331293+09:00"
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -59,7 +59,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.19.0
-    created: "2020-10-24T16:10:31.7812454+09:00"
+    created: "2020-10-26T00:41:52.9397869+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -84,4 +84,4 @@ entries:
     urls:
     - prometheus-11.6.0.tgz
     version: 11.6.0
-generated: "2020-10-24T16:10:31.7690543+09:00"
+generated: "2020-10-26T00:41:52.9260334+09:00"
