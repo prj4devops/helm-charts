@@ -38,13 +38,13 @@ spec:
           configMap:
             name: welcome-configmap
         - name: storage-volume
-        {{- if .Values.server.persistentVolume.enabled }}
+        {{- if .Values.welcome.persistentVolume.enabled }}
           persistentVolumeClaim:
-            claimName: {{ if .Values.server.persistentVolume.existingClaim }}{{ .Values.server.persistentVolume.existingClaim }}{{- else }}{{ template "prometheus.server.fullname" . }}{{- end }}
+            claimName: {{ if .Values.welcome.persistentVolume.existingClaim }}{{ .Values.welcome.persistentVolume.existingClaim }}{{- else }}{{ template "welcome.fullname" . }}{{- end }}
         {{- else }}
           emptyDir:
-          {{- if .Values.server.emptyDir.sizeLimit }}
-            sizeLimit: {{ .Values.server.emptyDir.sizeLimit }}
+          {{- if .Values.welcome.emptyDir.sizeLimit }}
+            sizeLimit: {{ .Values.welcome.emptyDir.sizeLimit }}
           {{- else }}
             {}
           {{- end -}}

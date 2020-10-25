@@ -2,21 +2,21 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{template "welcome.fullname" . }}
-  namespace: {{ template "welcome.namespace" . }}
+  {{ template "welcome.namespace" . }}
   labels:
     "app.kubernetes.io/name": '{{ template "welcome.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
     "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
     "app.kubernetes.io/instance": "{{ .Release.Name }}"
     "app.kubernetes.io/component": "{{ .Values.welcome.componentName }}"
-  {{- if (and (eq .Values.welcome.serviceType "ClusterIP") (not (empty .Values.welcome.clusterIP))) }}
+  {{- if (and (eq .Values.service.type "ClusterIP") (not (empty .Values.welcome.clusterIP))) }}
   clusterIP: {{.Values.welcome.clusterIP}}
   {{- end }}
   ports:
-    - port: {{.Values.welcome.servicePort}}
+    - port: {{.Values.service.port}}
       name: http
-      targetPort: {{ .Values.welcome.targetPort }}
-      {{- if (and (eq .Values.welcome.serviceType "NodePort") (not (empty .Values.welcome.nodePort))) }}
+      targetPort: {{ .Values.service.targetPort }}
+      {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.welcome.nodePort))) }}
       nodePort: {{.Values.welcome.nodePort}}
       {{- end }}
 {{- range $index, $port := .Values.welcome.extraPorts }}
@@ -27,8 +27,8 @@ metadata:
   selector:
     "app.kubernetes.io/component": "{{ .Values.welcome.componentName }}"
     "app.kubernetes.io/instance": "{{ .Release.Name }}"
-  type: {{.Values.welcome.serviceType}}
-  {{if eq .Values.welcome.serviceType "LoadBalancer"}}
+  type: {{.Values.service.type}}
+  {{if eq .Values.service.type "LoadBalancer"}}
 {{- if .Values.welcome.loadBalancerSourceRanges }}
   loadBalancerSourceRanges:
 {{ toYaml .Values.welcome.loadBalancerSourceRanges | indent 4 }}

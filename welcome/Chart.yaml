@@ -3,7 +3,6 @@ appVersion: 1.0.0
 description: For Educational Propose Customize Nginx
 engine: gotpl
 home: https://github.com/seongjumoon/template-base
-icon: 'teset.ico'
 maintainers:
 - email: seongju.moon@linux.com
   name: seongju moon

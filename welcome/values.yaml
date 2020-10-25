@@ -1,11 +1,14 @@
 # applcation base
 welcome:
   printName: "world"
+  persistentVolume:
+    enabled: true
+    existingClaim: "pp"
 
 service:
   port: 80
-  serviceAccount:
-    create: false
+  targetPort: 80
+  type: ClusterIP
 
 # pvc settings
 persistence:
