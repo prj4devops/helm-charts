@@ -3,7 +3,8 @@ welcome:
   printName: "world"
   persistentVolume:
     enabled: true
-    existingClaim: "pp"
+    existingClaim: "jenkins"
+  assetDownloadURL: "http://github.com/SeongJuMoon/template-base/releases/download/1.0.0/public.zip"
 
 service:
   port: 80

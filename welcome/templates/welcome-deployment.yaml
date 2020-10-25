@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: welcome-deployment
 {{- if .Values.welcome.deploymentAnnotations }}
   annotations:
 {{ toYaml .Values.welcome.deploymentAnnotations | indent 4 }}
@@ -17,22 +18,23 @@ spec:
       labels:
         app: nginx
     spec:
-      initContainers:
-        - name: html-install
-          image: busybox
-          command:
-          - wget
-          - "-O"
-          - "/temp-public"
-          - https://github.com/SeongJuMoon/template-base/releases/download/1.0.0/public.zip
+      # initContainers:
+      #   - name: html-install
+      #     image: busybox
+      #     command: ["/bin/sh", "-c", "wget -qO- {{ .Values.welcome.assetDownloadURL }} | unzip public.zip -d /public"]
+      #     volumeMounts:
+      #     - name: storage-volume
+      #       mountPath: /public
       containers:
       - name: welcome
         image: nginx:latest
-        volueMounts:
+        volumeMounts:
         - name: storage-volume
-          mountPath: /usr/share/nginx/html
+          mountPath: /public
         - name: config-volume
-          mountPath: /etc/nginx/sites-enabled/default
+          mountPath: /etc/nginx/conf.d/
+        ports:
+        - containerPort: 80
       volumes:
         - name: config-volume
           configMap:

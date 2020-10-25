@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: welcome-configmapp
+  name: welcome-configmap
   labels:
     "app.kubernetes.io/name": '{{ template "welcome.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"

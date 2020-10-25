@@ -8,7 +8,7 @@ metadata:
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
     "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
     "app.kubernetes.io/instance": "{{ .Release.Name }}"
-    "app.kubernetes.io/component": "{{ .Values.welcome.componentName }}"
+spec:
   {{- if (and (eq .Values.service.type "ClusterIP") (not (empty .Values.welcome.clusterIP))) }}
   clusterIP: {{.Values.welcome.clusterIP}}
   {{- end }}
@@ -19,11 +19,6 @@ metadata:
       {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.welcome.nodePort))) }}
       nodePort: {{.Values.welcome.nodePort}}
       {{- end }}
-{{- range $index, $port := .Values.welcome.extraPorts }}
-    - port: {{ $port.port }}
-      name: {{ $port.name }}
-      targetPort: {{ $port.port }}
-{{- end }}
   selector:
     "app.kubernetes.io/component": "{{ .Values.welcome.componentName }}"
     "app.kubernetes.io/instance": "{{ .Release.Name }}"
