@@ -10,4 +10,4 @@ name: welcome
 sources:
 - https://github.com/seongjumoon/template-base
 tillerVersion: '>=2.8.0'
-version: 1.0.3
+version: 1.0.4

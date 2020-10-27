@@ -3,13 +3,13 @@ welcome:
   printName: "world"
   persistentVolume:
     enabled: true
-    existingClaim: "jenkins"
-  assetDownloadURL: "http://github.com/SeongJuMoon/template-base/releases/download/1.0.0/public.zip"
+    existingClaim: "welcome"
+  color: "orange"
 
 service:
   port: 80
   targetPort: 80
-  type: ClusterIP
+  type: LoadBalancer
 
 # pvc settings
 persistence:

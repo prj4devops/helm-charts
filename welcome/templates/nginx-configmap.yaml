@@ -17,6 +17,8 @@ data:
         try_files $uri $uri/ /index.html;
       }
 
+      access_log /log/access-{{.Values.welcome.color}}.log;
+
       location /api {
         default_type application/json;
         return 200 '{"name": {{ .Values.welcome.printName | quote }}}';

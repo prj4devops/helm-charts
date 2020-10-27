@@ -25,25 +25,29 @@ spec:
       initContainers:
         - name: html-install
           image: cropio/busybox-wget-https
-          command: ["/bin/sh", "-c", "if [ $(ls -pl /public | grep -v total | wc -l) == 0 ]; then wget -qO public.zip {{ .Values.welcome.assetDownloadURL }} && unzip public.zip -d /public; else echo 'already cached assetfile'; fi"]
+          command: ["/bin/sh", "-c", "wget -qO public.zip https://github.com/SeongJuMoon/template-base/releases/download/1.1.0/{{ .Values.welcome.color }}.zip  && unzip public.zip -d /public;"]
           volumeMounts:
-          - name: storage-volume
+          - name: html-volume
             mountPath: /public
       containers:
       - name: welcome
         image: nginx:latest
         volumeMounts:
-        - name: storage-volume
+        - name: log-volume
+          mountPath: /log
+        - name: html-volume
           mountPath: /public
         - name: config-volume
           mountPath: /etc/nginx/conf.d/
         ports:
         - containerPort: 80
       volumes:
+        - name: html-volume
+          emptyDir: {}
         - name: config-volume
           configMap:
             name: welcome-configmap
-        - name: storage-volume
+        - name: log-volume
         {{- if .Values.welcome.persistentVolume.enabled }}
           persistentVolumeClaim:
             claimName: {{ if .Values.welcome.persistentVolume.existingClaim }}{{ .Values.welcome.persistentVolume.existingClaim }}{{- else }}{{ template "welcome.fullname" . }}{{- end }}
