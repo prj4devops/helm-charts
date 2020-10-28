@@ -1,9 +1,25 @@
 apiVersion: v1
 entries:
+  dashboard:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2020-10-28T21:39:27.7631886+09:00"
+    description: For Educational Propose Customize Nginx Dashboard
+    digest: f296613e79bff5d3c4b4ea12be96d8410060da68f9a4f79ffa8431b4595fd1b8
+    home: https://github.com/seongjumoon/template-base
+    maintainers:
+    - email: seongju.moon@linux.com
+      name: Seongju Moon
+    name: dashboard
+    sources:
+    - https://github.com/seongjumoon/template-base
+    urls:
+    - dashboard-1.0.0.tgz
+    version: 1.0.0
   grafana:
   - apiVersion: v1
     appVersion: 7.0.3
-    created: "2020-10-28T02:24:13.9255439+09:00"
+    created: "2020-10-28T21:39:27.7650612+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 79d408a92f8f1b78877dba988c5c0e624e284d94adb8770674128ce1942b389f
     home: https://grafana.net
@@ -25,7 +41,7 @@ entries:
   jenkins:
   - apiVersion: v1
     appVersion: lts
-    created: "2020-10-28T02:24:13.9295084+09:00"
+    created: "2020-10-28T21:39:27.7687326+09:00"
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -59,7 +75,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.19.0
-    created: "2020-10-28T02:24:13.9353128+09:00"
+    created: "2020-10-28T21:39:27.7797368+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -84,35 +100,4 @@ entries:
     urls:
     - prometheus-11.6.0.tgz
     version: 11.6.0
-  welcome:
-  - apiVersion: v1
-    appVersion: 1.0.0
-    created: "2020-10-28T02:24:13.9363974+09:00"
-    description: For Educational Propose Customize Nginx
-    digest: 7e2a3c9427ef23c80baec8961f5b7f943779b97b48d5c6ad5bdd842c1168f87d
-    home: https://github.com/seongjumoon/template-base
-    maintainers:
-    - email: seongju.moon@linux.com
-      name: seongju moon
-    name: welcome
-    sources:
-    - https://github.com/seongjumoon/template-base
-    urls:
-    - welcome-1.0.4.tgz
-    version: 1.0.4
-  - apiVersion: v1
-    appVersion: 1.0.0
-    created: "2020-10-28T02:24:13.9358523+09:00"
-    description: For Educational Propose Customize Nginx
-    digest: 151142fa1a3a7ad66771d1354c8227bfce03729f5dee8ed4b79cdb9479c74627
-    home: https://github.com/seongjumoon/template-base
-    maintainers:
-    - email: seongju.moon@linux.com
-      name: seongju moon
-    name: welcome
-    sources:
-    - https://github.com/seongjumoon/template-base
-    urls:
-    - welcome-1.0.3.tgz
-    version: 1.0.3
-generated: "2020-10-28T02:24:13.9215054+09:00"
+generated: "2020-10-28T21:39:27.7605645+09:00"
