@@ -6,7 +6,7 @@ Your theme is {{ .Values.dashboard.color }}.
 
 Please check with the command below.
  $ kubectl get service -l {{ .dashboard.fullname}}-service
- $ kubectl get deployment -l {{ .dashboard.fullname}}-service
+ $ kubectl get deployment -l {{ .dashboard.fullname}}-deployment
 
 To disclaimer:
 This chart is made for educational propose.
