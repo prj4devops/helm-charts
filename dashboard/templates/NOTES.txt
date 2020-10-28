@@ -5,8 +5,8 @@ it's serving your name that when your install this chart given variable!
 Your theme is {{ .Values.dashboard.color }}.
 
 Please check with the command below.
- $ kubectl get service -l {{ .dashboard.fullname}}-service
- $ kubectl get deployment -l {{ .dashboard.fullname}}-deployment
+ $ kubectl get service -l {{ template .dashboard.fullname }}-service
+ $ kubectl get deployment -l {{ template .dashboard.fullname }}-deployment
 
 To disclaimer:
 This chart is made for educational propose.
