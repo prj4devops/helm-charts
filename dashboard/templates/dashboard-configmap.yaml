@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{template "dashboard.fullname" . }}-deployment
+  name: {{template "dashboard.fullname" . }}-configmap
   labels:
     "app.kubernetes.io/name": '{{ template "dashboard.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
