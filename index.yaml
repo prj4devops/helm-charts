@@ -3,9 +3,9 @@ entries:
   dashboard:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2020-10-28T22:42:55.7789246+09:00"
+    created: "2020-10-29T02:01:18.5826049+09:00"
     description: For Educational Propose Customize Nginx Dashboard
-    digest: af75de3d6869b40d66a0af581303cbc9d6f3bf7858d9b162a604704f851a3607
+    digest: 5c221d79dca7c5cef90023a76f0c9ba16de2934752745da4f4f945f2035f57e8
     home: https://github.com/seongjumoon/template-base
     maintainers:
     - email: seongju.moon@linux.com
@@ -19,7 +19,7 @@ entries:
   grafana:
   - apiVersion: v1
     appVersion: 7.0.3
-    created: "2020-10-28T22:42:55.7805776+09:00"
+    created: "2020-10-29T02:01:18.5842682+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 79d408a92f8f1b78877dba988c5c0e624e284d94adb8770674128ce1942b389f
     home: https://grafana.net
@@ -41,7 +41,7 @@ entries:
   jenkins:
   - apiVersion: v1
     appVersion: lts
-    created: "2020-10-28T22:42:55.7868655+09:00"
+    created: "2020-10-29T02:01:18.5916181+09:00"
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -75,7 +75,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.19.0
-    created: "2020-10-28T22:42:55.7918446+09:00"
+    created: "2020-10-29T02:01:18.5961806+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -100,4 +100,4 @@ entries:
     urls:
     - prometheus-11.6.0.tgz
     version: 11.6.0
-generated: "2020-10-28T22:42:55.777829+09:00"
+generated: "2020-10-29T02:01:18.5814962+09:00"
