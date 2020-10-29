@@ -10,6 +10,7 @@ metadata:
 data:
    nginx.conf: |-
     server {
+      add_header Cache-Control no-store;
       listen 80;
       location / {
         root /public;
